@@ -18,6 +18,11 @@ variable "project_name" {
 }
 
 variable "environment" {
-  description = "Deployment"
+  description = "Deployment Environment"
+  type = string
+}
+
+variable "ssh_cidr" {
+  description = "Allowed CIDR for SSH"
   type = string
 }
