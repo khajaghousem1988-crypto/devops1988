@@ -91,6 +91,8 @@ module "ecs" {
 
   environment = var.environment
 
+  # private_subnet_ids = module.vpc.private_subnet_ids
+
   public_subnet_ids = module.vpc.public_subnet_ids
 
   security_group_id = module.security_group.security_group_id
