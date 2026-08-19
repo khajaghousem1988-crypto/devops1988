@@ -14,9 +14,17 @@ variable "environment" {
 
 }
 
-variable "private_subnet_ids" {
+# variable "private_subnet_ids" {
 
-  description = "Private Subnet IDs"
+#   description = "Private Subnet IDs"
+
+#   type = list(string)
+
+# }
+
+variable "public_subnet_ids" {
+
+  description = "Public Subnet IDs"
 
   type = list(string)
 
@@ -67,5 +75,12 @@ variable "log_group_name" {
   description = "CloudWatch Log Group"
 
   type = string
+
+}
+
+variable "task_definition_arn" {
+
+ description = "ARN of the ECS Task definition"
+ type        = string
 
 }

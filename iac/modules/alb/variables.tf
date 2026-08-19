@@ -31,3 +31,11 @@ variable "security_group_id" {
   type = string
 
 }
+
+variable "task_definition_arn" {
+
+  description = "ARN of the ECS task definition"
+
+  type = string
+
+}

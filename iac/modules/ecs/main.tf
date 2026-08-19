@@ -52,7 +52,7 @@ resource "aws_ecs_task_definition" "banking_task" {
 
       name = "banking-app"
 
-      image = "${var.repository_url}:${var.image_tag}"
+      image = "${var.repository_url}:latest"
 
       essential = true
 
@@ -62,9 +62,9 @@ resource "aws_ecs_task_definition" "banking_task" {
 
           containerPort = 5000
 
-          hostPort = 5000
+          hostPort      = 5000
 
-          protocol = "tcp"
+          protocol      = "tcp"
 
         }
 
@@ -78,7 +78,7 @@ resource "aws_ecs_task_definition" "banking_task" {
 
           awslogs-group = var.log_group_name
 
-          awslogs-region = "us-east-1"
+          awslogs-region = "eu-north-1"
 
           awslogs-stream-prefix = "ecs"
 
