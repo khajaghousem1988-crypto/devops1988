@@ -10,6 +10,17 @@ output "target_group_arn" {
   value = aws_lb_target_group.banking_tg.arn
 }
 
+output "blue_target_group_arn" {
+  value = aws_lb_target_group.banking_tg.arn
+}
+
+output "green_target_group_arn" {
+  value = aws_lb_target_group.green_tg.arn
+}
+
 output "listener_arn" {
   value = aws_lb_listener.http.arn
+}
+output "production_listener_rule_arn" {
+  value = aws_lb_listener_rule.production.arn
 }

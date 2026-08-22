@@ -1,11 +1,17 @@
 variable "project_name" {
-  description = "Project name prefix for ALB resources"
-  type        = string
+
+  description = "Project Name"
+
+  type = string
+
 }
 
 variable "environment" {
-  description = "Environment name (e.g., dev, prod)"
-  type        = string
+
+  description = "Environment"
+
+  type = string
+
 }
 
 variable "vpc_id" {
@@ -31,11 +37,13 @@ variable "security_group_id" {
   type = string
 
 }
-
-variable "task_definition_arn" {
-
-  description = "ARN of the ECS task definition"
-
-  type = string
-
+variable "access_logs_bucket" {
+  description = "S3 bucket used for ALB access logs"
+  type        = string
 }
+ 
+variable "aws_region" {
+
+  default = "eu-north-1"
+
+} 

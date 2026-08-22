@@ -5,6 +5,4 @@ variable "public_subnet_2_cidr" {}
 variable "private_subnet_1_cidr" {}
 variable "private_subnet_2_cidr" {}
 variable "az1" {}
-variable "az2" {} 
-
-
+variable "az2" {}

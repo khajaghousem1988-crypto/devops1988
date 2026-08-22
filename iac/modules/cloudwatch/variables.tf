@@ -1,25 +1,29 @@
 variable "project_name" {
 
-    description = "Project Name"
+  description = "Project Name"
 
-    type = string
-  
+  type = string
+
 }
 
 variable "environment" {
 
-    description = "Environment"
+  description = "Environment"
 
-    type = string
-  
+  type = string
+
 }
 
 variable "retention_in_days" {
 
-    description = "CloudWatch Log Retention"
+  description = "CloudWatch Log Retention"
 
-    type = number
+  type = number
 
-    default = 30
-  
+  default = 365
+
+}
+variable "kms_key_arn" {
+  description = "KMS key ARN used to encrypt the CloudWatch Log Group"
+  type        = string
 }

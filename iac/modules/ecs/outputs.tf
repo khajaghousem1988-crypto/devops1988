@@ -12,7 +12,16 @@ output "cluster_arn" {
 
 output "task_definition_arn" {
 
-  description = "ARN of the ECS Task Definition"
   value = aws_ecs_task_definition.banking_task.arn
 
+}
+
+output "service_name" {
+  description = "ECS service name"
+  value       = aws_ecs_service.banking_service.name
+}
+
+output "service_arn" {
+  description = "ECS service ARN"
+  value       = aws_ecs_service.banking_service.id
 }
