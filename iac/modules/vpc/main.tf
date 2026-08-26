@@ -128,7 +128,9 @@ resource "aws_route_table" "private" {
     nat_gateway_id = aws_nat_gateway.this.id
 
   }
-
+  tags = {
+    Name = "private-route-table"
+  }
 }
 
 resource "aws_route_table_association" "private1" {

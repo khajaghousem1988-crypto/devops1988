@@ -42,8 +42,3 @@ variable "access_logs_bucket" {
   type        = string
 }
  
-variable "aws_region" {
-
-  default = "eu-north-1"
-
-} 
