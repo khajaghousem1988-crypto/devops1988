@@ -33,3 +33,11 @@ variable "ssh_cidr" {
   description = "Allowed CIDR for SSH"
   type        = string
 }
+
+variable "aws_profile" {
+
+  description = "AWS Profile"
+
+  type = string
+
+}
