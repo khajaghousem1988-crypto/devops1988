@@ -1,5 +1,5 @@
 name: Banking Application CI/CD
-
+ 
 on:
   push:
     branches:
