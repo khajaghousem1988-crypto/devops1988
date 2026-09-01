@@ -1,5 +1,5 @@
 provider "aws" {
-  region  = var.aws_region
+  region = var.aws_region
   # profile = "devops1988"
   profile = try(var.aws_profile, null)
   default_tags {
