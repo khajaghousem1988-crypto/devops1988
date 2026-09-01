@@ -48,7 +48,8 @@ module "ecr" {
   project_name = var.project_name
 
   environment = var.environment
-  #kms_key_arn = module.kms_ecr.key_arn
+
+  # kms_key_arn = module.kms_ecr.key_arn
 
 
 }
@@ -63,53 +64,54 @@ module "cloudwatch" {
   kms_key_arn = module.kms_cloudwatch.key_arn
 
 }
-# module "alb" {
-#   source = "./modules/alb"
 
-#   project_name      = var.project_name
-#   environment       = var.environment
-#   vpc_id            = module.vpc.vpc_id
-#   public_subnet_ids = module.vpc.public_subnet_ids
+module "alb" {
+  source = "./modules/alb"
 
-#   security_group_id  = module.security_group.alb_security_group_id
-#   access_logs_bucket = module.alb_logs.bucket_name
-#   depends_on = [
-#     module.alb_logs
-#   ]
-# }
+  project_name      = var.project_name
+  environment       = var.environment
+  vpc_id            = module.vpc.vpc_id
+  public_subnet_ids = module.vpc.public_subnet_ids
 
-# module "ecs" {
-#   source = "./modules/ecs"
+  security_group_id  = module.security_group.alb_security_group_id
+  access_logs_bucket = module.alb_logs.bucket_name
+  depends_on = [
+    module.alb_logs
+  ]
+}
 
-#   project_name = var.project_name
-#   environment  = var.environment
-#   aws_region   = var.aws_region
+module "ecs" {
+  source = "./modules/ecs"
 
-#   private_subnet_ids = module.vpc.private_subnet_ids
-#   security_group_id  = module.security_group.ecs_security_group_id
+  project_name = var.project_name
+  environment  = var.environment
+  aws_region   = var.aws_region
 
-#   execution_role_arn = module.iam.ecs_execution_role_arn
-#   task_role_arn      = module.iam.ecs_task_role_arn
+  private_subnet_ids = module.vpc.private_subnet_ids
+  security_group_id  = module.security_group.ecs_security_group_id
 
-#   # Blue/Green infrastructure role
-#   infrastructure_role_arn = module.iam.ecs_infrastructure_role_arn
+  execution_role_arn = module.iam.ecs_execution_role_arn
+  task_role_arn      = module.iam.ecs_task_role_arn
 
-#   repository_url = module.ecr.repository_url
-#   image_tag      = "bootstrap"
+  # Blue/Green infrastructure role
+  infrastructure_role_arn = module.iam.ecs_infrastructure_role_arn
 
-#   # Current BLUE target group
-#   target_group_arn = module.alb.target_group_arn
+  repository_url = module.ecr.repository_url
+  image_tag      = "bootstrap"
 
-#   # Blue/Green configuration
-#   green_target_group_arn       = module.alb.green_target_group_arn
-#   production_listener_rule_arn = module.alb.production_listener_rule_arn
+  # Current BLUE target group
+  target_group_arn = module.alb.target_group_arn
 
-#   log_group_name = module.cloudwatch.log_group_name
+  # Blue/Green configuration
+  green_target_group_arn       = module.alb.green_target_group_arn
+  production_listener_rule_arn = module.alb.production_listener_rule_arn
 
-#   depends_on = [
-#     module.iam
-#   ]
-# }
+  log_group_name = module.cloudwatch.log_group_name
+
+  depends_on = [
+    module.iam
+  ]
+}
 
 module "kms_cloudwatch" {
   source = "./modules/kms"

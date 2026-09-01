@@ -34,10 +34,4 @@ variable "ssh_cidr" {
   type        = string
 }
 
-variable "aws_profile" {
 
-  description = "AWS Profile"
-
-  type = string
-
-}

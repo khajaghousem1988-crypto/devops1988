@@ -1,9 +1,7 @@
 #############################################
 # ECS Cluster
 #############################################
-
 resource "aws_ecs_cluster" "banking_cluster" {
-
   name = "${var.project_name}-${var.environment}-cluster"
 
   setting {
@@ -13,7 +11,6 @@ resource "aws_ecs_cluster" "banking_cluster" {
     value = "enabled"
 
   }
-
   tags = {
 
     Name = "${var.project_name}-${var.environment}-cluster"
@@ -21,13 +18,9 @@ resource "aws_ecs_cluster" "banking_cluster" {
     Environment = var.environment
 
   }
-
 }
-
 #############################################
-
 # ECS Task Definition
-
 #############################################
 
 resource "aws_ecs_task_definition" "banking_task" {
