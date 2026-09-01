@@ -1,5 +1,6 @@
 provider "aws" {
   region  = var.aws_region
+  # region = eu-north-1
   profile = "devops1988"
   default_tags {
     tags = {
@@ -7,6 +8,7 @@ provider "aws" {
       Environment = var.environment
       ManagedBy   = "Terraform"
       Owner       = "DevOps Team"
+      region      = var.aws_region     
     }
   }
 }
