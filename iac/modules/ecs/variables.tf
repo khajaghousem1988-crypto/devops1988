@@ -88,7 +88,7 @@ variable "log_group_name" {
 variable "image_tag" {
   description = "Docker image tag used for initial ECS task definition"
   type        = string
-  default     = "latest"
+  default     = "bootstrap"
 }
 
 variable "aws_region" {
